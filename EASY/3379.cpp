@@ -36,6 +36,9 @@
 // For nums[1] that is equal to 4, If we move 4 steps to right, we reach nums[2]. So result[1] should be -1.
 // For nums[2] that is equal to -1, If we move 1 step to left, we reach nums[1]. So result[2] should be 4.
 
+
+// POTD
+
 class Solution {
 public:
     vector<int> constructTransformedArray(vector<int>& nums) {
