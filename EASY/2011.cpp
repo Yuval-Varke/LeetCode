@@ -40,12 +40,12 @@
 // X--: X is decremented by 1, X = 1 - 1 = 0.
  
 
-// class Solution {
-// public:
-//     int finalValueAfterOperations(vector<string>& operations) {
-//         int x=0;
-//         for(auto& op: operations)
-//             x+=(op[1]=='+')?1:-1;
-//         return x;
-//     }
-// };
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int x=0;
+        for(auto& op: operations)
+            x+=(op[1]=='+')?1:-1;
+        return x;
+    }
+};
