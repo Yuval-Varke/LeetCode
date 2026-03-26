@@ -36,3 +36,12 @@ class Solution:
                 return True
         return False
 
+# @Hash set - O(n)
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return True
+            seen.add(num)
+        return False
