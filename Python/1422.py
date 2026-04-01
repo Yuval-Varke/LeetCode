@@ -33,6 +33,29 @@
 # 2 <= s.length <= 500
 # The string s consists of characters '0' and '1' only.
 
+# Brute force solution
+class Solution:
+    def countOnes(self, s: str) -> int:
+        cnt_ones = 0
+        for i in range(len(s)):
+            if s[i] == "1":
+                cnt_ones += 1
+        return cnt_ones
+
+    def countZeros(self, s: str) -> int:
+        cnt_zeros = 0
+        for i in range(len(s)):
+            if s[i] == "0":
+                cnt_zeros += 1
+        return cnt_zeros
+
+    def maxScore(self, s: str) -> int:
+        max_cnt = 0
+        for i in range(len(s) - 1):   
+            zeros = self.countZeros(s[:i+1])   
+            ones = self.countOnes(s[i+1:])     
+            max_cnt = max(max_cnt, zeros + ones)
+        return max_cnt
 
 # One-pass solution
 class Solution:
