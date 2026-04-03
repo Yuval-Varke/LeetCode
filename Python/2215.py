@@ -40,3 +40,18 @@ class Solution:
             if nums2[i] not in nums1 and nums2[i] not in arr[1]:
                 arr[1].append(nums2[i])
         return arr
+    
+
+
+
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        s1 = set(nums1)
+        arr = list(set(nums2))
+        res = []
+        for num in arr:
+            if num not in s1:
+                res.append(num)
+            else:
+                s1.remove(num)
+        return [list(s1),res]
