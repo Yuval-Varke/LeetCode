@@ -27,8 +27,6 @@
 
 
 
-
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -36,9 +34,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def Heights(self,root:Optional[Treenode]) -> int: 
+        if not root:
+            return 0
+        return 1 + max(self.Heights(root.left), self.Heights(root.right))
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         if not root:
-            return
-        l = self.diameterOfBinaryTree(root.left)
-        r = self.diameterOfBinaryTree(root.right)
-        return max(l,r)
+            return 0
+        lh = self.Heights(root.left)
+        rh = self.Heights(root.right)
+        h = lh + rh
+        maxh = max(self.diameterOfBinaryTree(root.left),self.diameterOfBinaryTree(root.right))
+        return max(maxh,h)
