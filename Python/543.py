@@ -46,3 +46,25 @@ class Solution:
         h = lh + rh
         maxh = max(self.diameterOfBinaryTree(root.left),self.diameterOfBinaryTree(root.right))
         return max(maxh,h)
+    
+
+
+
+
+
+# DFS Solution - Time Complexity: O(N) and Space Complexity: O(H) 
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        res = 0
+        def dfs(root):
+            nonlocal res
+            if not root:
+                return 0
+            left = dfs(root.left)
+            right = dfs(root.right)
+            res = max(res,left+right)
+
+            return 1 + max(left,right)
+        
+        dfs(root)
+        return res
